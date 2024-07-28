@@ -1,0 +1,78 @@
+.service-advisor-dashboard-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 20px;
+  color: #343a40;
+}
+
+.vehicle-list, .bill-of-material {
+  margin-bottom: 20px;
+}
+
+.vehicle-list ul, .bill-of-material ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.vehicle-list li, .bill-of-material li {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.vehicle-list button, .bill-of-material button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.vehicle-list button:hover, .bill-of-material button:hover {
+  background-color: #0056b3;
+}
+
+.bill-of-material {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bill-of-material form div {
+  margin-bottom: 10px;
+}
+
+.bill-of-material label {
+  display: block;
+  margin-bottom: 5px;
+  color: #343a40;
+}
+
+.bill-of-material input, .bill-of-material select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}

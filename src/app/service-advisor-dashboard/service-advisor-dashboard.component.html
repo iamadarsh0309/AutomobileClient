@@ -1,0 +1,43 @@
+<div class="service-advisor-dashboard-container">
+    <h1>Service Advisor Dashboard</h1>
+
+    <!-- List of Vehicles Under Servicing -->
+    <div class="vehicle-list">
+        <h2>Vehicles Under Servicing</h2>
+        <ul>
+            <li *ngFor="let vehicle of vehiclesUnderServicing">
+                <div>
+                    {{ vehicle.number }} - {{ vehicle.model }} - {{ vehicle.customer }}
+                </div>
+
+                <!-- Bill of Material Form for Each Vehicle -->
+                <div class="bill-of-material">
+                    <h3>Bill of Material for {{ vehicle.number }}</h3>
+                    <form (ngSubmit)="addItem(vehicle)">
+                        <div>
+                            <label for="item-{{ vehicle.number }}">Item:</label>
+                            <select id="item-{{ vehicle.number }}" [(ngModel)]="newItem[vehicle.number].name"
+                                name="item" required>
+                                <option *ngFor="let item of availableItems" [value]="item.name">{{ item.name }}</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="quantity-{{ vehicle.number }}">Quantity:</label>
+                            <input id="quantity-{{ vehicle.number }}" type="number"
+                                [(ngModel)]="newItem[vehicle.number].quantity" name="quantity" required>
+                        </div>
+                        <button type="submit">Add Item</button>
+                    </form>
+
+                    <!-- List of Items Added -->
+                    <h4>Items Added</h4>
+                    <ul>
+                        <li *ngFor="let item of vehicle.billOfMaterial">
+                            {{ item.name }} - Quantity: {{ item.quantity }}
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="admin-dashboard-container">
+    <h1>Admin Dashboard</h1>
+
+    <!-- List of Vehicles Due for Servicing -->
+    <div class="vehicle-list">
+        <h2>Vehicles Due for Servicing</h2>
+        <ul>
+            <li *ngFor="let vehicle of vehiclesDueForServicing">
+                {{ vehicle.number }} - {{ vehicle.model }} - {{ vehicle.customer }}
+                <button (click)="scheduleVehicle(vehicle)">Schedule for Servicing</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- List of Vehicles Under Servicing -->
+    <div class="vehicle-list">
+        <h2>Vehicles Under Servicing</h2>
+        <ul>
+            <li *ngFor="let vehicle of vehiclesUnderServicing">
+                {{ vehicle.number }} - {{ vehicle.model }} - {{ vehicle.customer }}
+                <button (click)="moveToServiced(vehicle)">Move to Serviced</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- List of Serviced Vehicles -->
+    <div class="vehicle-list">
+        <h2>Serviced Vehicles</h2>
+        <ul>
+            <li *ngFor="let vehicle of servicedVehicles">
+                {{ vehicle.number }} - {{ vehicle.model }} - {{ vehicle.customer }}
+                <button (click)="generateBill(vehicle)">Generate Bill</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Form to Add a New Vehicle to Due for Servicing -->
+    <div class="add-vehicle-form">
+        <h2>Add New Vehicle to Due for Servicing</h2>
+        <form (ngSubmit)="addVehicle()">
+            <div>
+                <label for="number">Vehicle Number:</label>
+                <input id="number" [(ngModel)]="newVehicle.number" name="number" required>
+            </div>
+            <div>
+                <label for="model">Vehicle Model:</label>
+                <input id="model" [(ngModel)]="newVehicle.model" name="model" required>
+            </div>
+            <div>
+                <label for="customer">Customer Name:</label>
+                <input id="customer" [(ngModel)]="newVehicle.customer" name="customer" required>
+            </div>
+            <button type="submit">Add Vehicle</button>
+        </form>
+    </div>
+</div>
