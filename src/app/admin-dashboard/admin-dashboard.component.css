@@ -1,78 +1,109 @@
+/* Main Container */
 .admin-dashboard-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
+  color: #333;
+  padding: 20px;
 }
 
-h1 {
+/* Header */
+.dashboard-header {
+  background-color: #003366;
+  color: #fff;
+  padding: 15px;
   text-align: center;
-  margin-bottom: 20px;
+  border-radius: 8px;
 }
 
-h2 {
-  margin-top: 20px;
-  color: #343a40;
+/* Content Area */
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0;
 }
 
-.vehicle-list, .add-vehicle-form {
-  margin-bottom: 20px;
+/* Vehicle Sections */
+.vehicle-section {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.vehicle-list ul {
+.section-header {
+  margin-bottom: 15px;
+}
+
+.vehicle-list {
   list-style-type: none;
   padding: 0;
 }
 
-.vehicle-list li {
-  background-color: #ffffff;
+.vehicle-item {
+  background-color: #fff;
   border: 1px solid #ddd;
+  border-radius: 8px;
   margin-bottom: 10px;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 5px;
 }
 
-.vehicle-list button, .add-vehicle-form button {
-  padding: 5px 10px;
+.vehicle-info {
+  display: flex;
+  align-items: center;
+}
+
+.action-btn {
   background-color: #007bff;
-  color: white;
   border: none;
-  border-radius: 5px;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.vehicle-list button:hover, .add-vehicle-form button:hover {
+.action-btn:hover {
   background-color: #0056b3;
 }
 
-.add-vehicle-form {
-  background-color: #ffffff;
+/* Form Section */
+.form-section {
+  background-color: #f4f4f4;
+  border-radius: 8px;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.add-vehicle-form div {
-  margin-bottom: 10px;
+.form-group {
+  margin-bottom: 15px;
 }
 
-.add-vehicle-form label {
+label {
   display: block;
   margin-bottom: 5px;
-  color: #343a40;
+  font-weight: bold;
 }
 
-.add-vehicle-form input {
+input {
   width: 100%;
   padding: 8px;
-  box-sizing: border-box;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
 }

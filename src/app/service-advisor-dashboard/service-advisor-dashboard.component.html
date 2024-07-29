@@ -1,43 +1,74 @@
 <div class="service-advisor-dashboard-container">
-    <h1>Service Advisor Dashboard</h1>
+  <h1>Service Advisor Dashboard</h1>
 
-    <!-- List of Vehicles Under Servicing -->
-    <div class="vehicle-list">
-        <h2>Vehicles Under Servicing</h2>
-        <ul>
-            <li *ngFor="let vehicle of vehiclesUnderServicing">
-                <div>
-                    {{ vehicle.number }} - {{ vehicle.model }} - {{ vehicle.customer }}
-                </div>
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      placeholder="Search vehicles..."
+    />
+  </div>
 
-                <!-- Bill of Material Form for Each Vehicle -->
-                <div class="bill-of-material">
-                    <h3>Bill of Material for {{ vehicle.number }}</h3>
-                    <form (ngSubmit)="addItem(vehicle)">
-                        <div>
-                            <label for="item-{{ vehicle.number }}">Item:</label>
-                            <select id="item-{{ vehicle.number }}" [(ngModel)]="newItem[vehicle.number].name"
-                                name="item" required>
-                                <option *ngFor="let item of availableItems" [value]="item.name">{{ item.name }}</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="quantity-{{ vehicle.number }}">Quantity:</label>
-                            <input id="quantity-{{ vehicle.number }}" type="number"
-                                [(ngModel)]="newItem[vehicle.number].quantity" name="quantity" required>
-                        </div>
-                        <button type="submit">Add Item</button>
-                    </form>
+  <!-- List of Vehicles Under Servicing -->
+  <div class="vehicle-list">
+    <h2>Vehicles Under Servicing</h2>
+    <ul>
+      <li *ngFor="let vehicle of filteredVehicles()">
+        <div class="vehicle-details">
+          <div class="vehicle-info">
+            <strong>{{ vehicle.number }}</strong> - {{ vehicle.model }} -
+            {{ vehicle.customer }}
+          </div>
 
-                    <!-- List of Items Added -->
-                    <h4>Items Added</h4>
-                    <ul>
-                        <li *ngFor="let item of vehicle.billOfMaterial">
-                            {{ item.name }} - Quantity: {{ item.quantity }}
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </div>
+          <!-- Bill of Material Form for Each Vehicle -->
+          <div class="bill-of-material">
+            <h3>Bill of Material for {{ vehicle.number }}</h3>
+            <form (ngSubmit)="addItem(vehicle)">
+              <div class="form-group">
+                <label for="item-{{ vehicle.number }}">Item:</label>
+                <select
+                  id="item-{{ vehicle.number }}"
+                  [(ngModel)]="newItem[vehicle.number].name"
+                  name="item"
+                  required
+                >
+                  <option
+                    *ngFor="let item of availableItems"
+                    [value]="item.name"
+                  >
+                    {{ item.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="quantity-{{ vehicle.number }}">Quantity:</label>
+                <input
+                  id="quantity-{{ vehicle.number }}"
+                  type="number"
+                  [(ngModel)]="newItem[vehicle.number].quantity"
+                  name="quantity"
+                  required
+                />
+              </div>
+              <button type="submit">Add Item</button>
+            </form>
+
+            <!-- List of Items Added -->
+            <h4>Items Added</h4>
+            <ul>
+              <li *ngFor="let item of vehicle.billOfMaterial; let i = index">
+                {{ item.name }} - Quantity: {{ item.quantity }}
+                <button (click)="editItem(vehicle, i)">Edit</button>
+                <button (click)="removeItem(vehicle, i)">Remove</button>
+              </li>
+            </ul>
+            <div class="total-cost">
+              Total Cost: ${{ calculateTotalCost(vehicle) }}
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

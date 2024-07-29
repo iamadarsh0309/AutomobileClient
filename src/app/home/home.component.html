@@ -1,8 +1,30 @@
 <div class="home-container">
+  <!-- Project Name -->
+  <header class="project-header">
     <h1>Prime Automobiles Ltd</h1>
-    <p>Please choose a dashboard:</p>
-    <div class="button-container">
-        <button routerLink="/admin-dashboard">Admin Dashboard</button>
-        <button routerLink="/service-advisor-dashboard">Service Advisor Dashboard</button>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Sidebar with Buttons -->
+    <div class="sidebar">
+      <button routerLink="/admin-dashboard">Admin Dashboard</button>
+      <button routerLink="/service-advisor-dashboard">
+        Service Advisor Dashboard
+      </button>
     </div>
+
+    <!-- Welcome Message and Current Date -->
+    <div class="welcome-date-container">
+      <div class="welcome-message">
+        <p>
+          Welcome to Prime Automobiles Ltd! We are committed to providing the
+          best service for your vehicle.
+        </p>
+      </div>
+      <div class="current-date">
+        <p>Today is: <span id="current-date"></span></p>
+      </div>
+    </div>
+  </div>
 </div>
